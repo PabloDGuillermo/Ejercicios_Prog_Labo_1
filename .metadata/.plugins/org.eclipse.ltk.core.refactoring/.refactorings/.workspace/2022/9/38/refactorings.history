@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Bibliotecas/src/inputs.c&apos;" deleteContents="false" description="Delete resource &apos;Bibliotecas/src/inputs.c&apos;" element1="/Bibliotecas/src/inputs.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1663191221387"/>&#x0A;<refactoring comment="Delete resource &apos;Bibliotecas/src/inputs.h&apos;" deleteContents="false" description="Delete resource &apos;Bibliotecas/src/inputs.h&apos;" element1="/Bibliotecas/src/inputs.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1663191226275"/>
+</session>

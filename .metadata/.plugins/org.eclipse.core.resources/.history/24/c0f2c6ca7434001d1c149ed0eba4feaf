@@ -1,0 +1,109 @@
+/*
+ ============================================================================
+ Name        : Bibliotecas.c
+ Author      : Pablo Guillermo
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int utn_GetNumero(int *pResultado, char mensaje[], char mensajeError[], int min, int max, int reintentos);
+int getInt(int* pResultado);
+int esNumerica(char cadena[]);
+int myGets(char cadena[], int len);
+
+
+int main()
+{
+    int num;        //Creo la variable del numero que necesito
+    int* pNum;      //Creo un puntero para guardar la dirección de memoria de la variable del numero que necesito
+    int error;      //Creo una variable para guardar el retorno de la función para chequear el error
+
+    pNum=&num;      //Le asigno la dirección de memoria de la variable del número al puntero
+
+    error=utn_GetNumero(pNum, "Ingrese un numero: ", "ERROR.", 0, 100, 3);
+
+    printf("el retorno es: %d y el numero ingresado es: %d",error, num); //Verifico resultados
+
+    return 0;
+}
+
+int utn_GetNumero(int* pResultado, char mensaje[], char mensajeError[], int min, int max, int reintentos){
+    int ret;        //Creo la variable para retornar si hubo error o no
+    int buffer;     //Creo la variable para guardar el número que necesito en un buffer descartable
+
+    while(reintentos>0){                    //Pregunto si los reintentos son mayores a 0
+        printf("%s", mensaje);              //Imprimo el mensaje para pedir el número
+        if(getInt(&buffer)==0){               //Guardo lo que pedí en el buffer descartable
+            if(buffer<=max && buffer>=min){     //Pregunto si lo que pedí está dentro del rango de min y max
+                break;                          //Si lo está, salgo del while
+            }
+            reintentos--;                       //Si no lo está, resto un reintento e imprimo el mensaje de error.
+            printf("%s", mensajeError);         //El bucle vuelve a empezar.
+        }
+    }
+
+    if(reintentos==0){              //Cuando salgo del bucle, pregunto si se quedó sin reintentos y retorno
+        ret=-1;                     //-1 para indicar el error.
+    }else{
+        ret=0;                      //Si no se quedó sin reintentos, retorno 0 para indicar que todo salió bien y
+        *pResultado=buffer;         //asigno lo que pedí en el puntero.
+    }
+
+    return ret;
+}
+
+int getInt(int* pResultado){
+    int ret;
+    char buffer[64];
+
+    ret=-1;
+
+    if(myGets(buffer,sizeof(buffer))==0 && esNumerica(buffer)==0){
+        ret=0;
+        *pResultado=atoi(buffer);
+    }
+
+    return ret;
+}
+
+int esNumerica(char cadena[]){
+
+    int i;
+    int ret;
+
+    ret=0;
+
+    i=0;
+
+    if(cadena!=NULL && strlen(cadena)>0){
+        while(cadena[i]!='\0'){
+            if(cadena[i]<'0' || cadena[i]>'9'){
+                ret=-1;
+                break;
+            }
+            i++;
+        }
+    }
+
+    return ret;
+}
+
+int myGets(char cadena[], int len){
+    int ret;
+
+    ret=-1;
+
+    if(cadena!=NULL && len>0 && fgets(cadena, len, stdin)==cadena){
+        fflush(stdin);
+        if(cadena[strlen(cadena)-1]=='\n'){
+            cadena[strlen(cadena)-1]='\0';
+        }
+        ret=0;
+    }
+}

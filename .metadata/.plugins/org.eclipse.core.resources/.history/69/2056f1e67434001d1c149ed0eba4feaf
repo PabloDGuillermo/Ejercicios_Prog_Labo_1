@@ -1,0 +1,37 @@
+/*
+ * inputs.c
+ *
+ *  Created on: 9 sep. 2022
+ *      Author: pablo
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int getNumero(int *pNumero, char mensaje[], char mensajeError[], int min, int max, int reintentos){
+	int ret;
+	int buffer;
+
+	ret=-1;
+
+	while(reintentos>0){
+		printf("%s", mensaje);
+
+	}
+
+
+
+
+	return ret;
+}
+
+int getInt(int bufferInt){
+	int ret;
+
+	ret=-1;
+
+
+	return ret;
+}

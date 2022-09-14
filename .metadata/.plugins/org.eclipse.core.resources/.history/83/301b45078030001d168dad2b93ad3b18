@@ -1,0 +1,12 @@
+/*
+ * inputs.c
+ *
+ *  Created on: 9 sep. 2022
+ *      Author: pablo
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+

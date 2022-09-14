@@ -1,0 +1,15 @@
+/*
+ * inputs.h
+ *
+ *  Created on: 9 sep. 2022
+ *      Author: pablo
+ */
+
+#ifndef INPUTS_H_
+#define INPUTS_H_
+
+static int esNumerica(char *cadena);
+static int getInt(int *pResultado);
+static int myGets(char *cadena, int longitud);
+
+#endif /* INPUTS_H_ */

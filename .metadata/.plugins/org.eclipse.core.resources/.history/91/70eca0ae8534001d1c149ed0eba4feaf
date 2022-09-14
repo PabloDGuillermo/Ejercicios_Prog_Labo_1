@@ -1,0 +1,96 @@
+/*
+ * biblioteca_utn.c
+ *
+ *  Created on: 14 sep. 2022
+ *      Author: pablo
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "libreriaUTN.h"
+
+int utn_GetNumero(int* pResultado, char mensaje[], char mensajeError[], char mensajeFinal[], int min, int max, int reintentos){
+    int ret;        //Creo la variable para retornar si hubo error o no
+    int buffer;     //Creo la variable para guardar el número que necesito en un buffer descartable
+
+    while(reintentos>0){                    //Pregunto si los reintentos son mayores a 0
+        printf("%s", mensaje);              //Imprimo el mensaje para pedir el número
+        if(getInt(&buffer)==0){               //Guardo lo que pedí en el buffer descartable
+            if(buffer<=max && buffer>=min){     //Pregunto si lo que pedí está dentro del rango de min y max
+                break;                          //Si lo está, salgo del while
+            }else{
+            	printf("%s\n", mensajeError);
+            }
+            reintentos--;                       //Si no lo está, resto un reintento e imprimo el mensaje de error.
+            if(reintentos==0){
+            	printf("%s", mensajeFinal);         //El bucle vuelve a empezar.
+            }
+        }
+    }
+
+    if(reintentos==0){              //Cuando salgo del bucle, pregunto si se quedó sin reintentos y retorno
+        ret=-1;                     //-1 para indicar el error.
+    }else{
+        ret=0;                      //Si no se quedó sin reintentos, retorno 0 para indicar que todo salió bien y
+        *pResultado=buffer;         //asigno lo que pedí en el puntero.
+    }
+
+    return ret;
+}
+
+int getInt(int* pResultado){
+    int ret;
+    char buffer[64];
+
+    ret=-1;
+
+    if(myGets(buffer,sizeof(buffer))==0){
+		if(esNumerica(buffer)==0){
+			ret=0;
+			*pResultado=atoi(buffer);
+		}
+    }
+
+    return ret;
+}
+
+int esNumerica(char cadena[]){
+
+    int i;
+    int ret;
+
+    ret=0;
+
+    i=0;
+
+    if(cadena!=NULL && strlen(cadena)>0){
+        while(cadena[i]!='\0'){
+            if(cadena[i]<'0' || cadena[i]>'9'){
+                ret=-1;
+                break;
+            }
+            i++;
+        }
+    }
+
+    return ret;
+}
+
+int myGets(char cadena[], int len){
+    int ret;
+
+    ret=-1;
+
+    if(cadena!=NULL && len>0){
+    	fgets(cadena, len, stdin);
+        fflush(stdin);
+        if(cadena[strlen(cadena)-1]=='\n'){
+            cadena[strlen(cadena)-1]='\0';
+        }
+        ret=0;
+    }
+
+    return ret;
+}

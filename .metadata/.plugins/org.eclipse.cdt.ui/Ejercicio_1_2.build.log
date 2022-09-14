@@ -1,0 +1,7 @@
+22:19:24 **** Incremental Build of configuration Debug for project Ejercicio_1_2 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Ejercicio_1_2.o" "..\\src\\Ejercicio_1_2.c" 
+gcc -o Ejercicio_1_2.exe "src\\Ejercicio_1_2.o" 
+
+22:19:24 Build Finished. 0 errors, 0 warnings. (took 593ms)
+

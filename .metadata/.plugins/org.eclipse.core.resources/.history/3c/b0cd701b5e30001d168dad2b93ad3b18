@@ -1,0 +1,66 @@
+/*
+ ============================================================================
+ Name        : Ejercicio_5_2.c
+ Author      : Pablo Guillermo
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "validaciones.h"
+#include "inputs.h"
+#include "outputs.h"
+
+
+
+
+
+
+
+
+int main(void) {
+	setbuf(stdout,NULL);
+
+	int numeros[10];
+	int contadorPos;
+	int contadorNeg;
+	int sumaPares;
+	int imparMayor;
+
+	contadorPos=0;
+	contadorNeg=0;
+
+	getNumeros(numeros, 10);
+
+	for(int i=0;i<10;i++){
+		printf("%d\n", numeros[i]);
+
+		if(esPositivo(numeros,i)==1){
+			contadorPos++;
+		}else if(esPositivo(numeros,i)==-1){
+			contadorNeg++;
+		}
+
+	}
+		imparMayor=mayorImpar(numeros);
+
+		sumaPares=sumarPares(numeros);
+
+	printf("La cantidad de positivos es: %d\n", contadorPos);
+	printf("La cantidad de negativos es: %d\n", contadorNeg);
+	printf("La suma de los pares es: %d\n", sumaPares);
+	printf("El mayor impar es el: %d\n", imparMayor);
+	listarNumerosIngresados(numeros);
+	listarNumerosPares(numeros);
+	listarNumerosPosicionesImpares(numeros);
+
+
+	return EXIT_SUCCESS;
+}
+
+
+
+

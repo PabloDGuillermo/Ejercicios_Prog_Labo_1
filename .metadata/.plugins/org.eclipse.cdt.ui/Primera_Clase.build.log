@@ -1,0 +1,8 @@
+21:53:35 **** Incremental Build of configuration Debug for project Primera_Clase ****
+Info: Internal Builder is used for build
+gcc -o Primera_Clase.exe "src\\Primera_Clase.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Primera_Clase.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+
+21:53:35 Build Failed. 1 errors, 0 warnings. (took 278ms)
+

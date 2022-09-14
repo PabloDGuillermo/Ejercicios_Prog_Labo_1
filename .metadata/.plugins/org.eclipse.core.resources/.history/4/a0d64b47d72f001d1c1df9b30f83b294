@@ -1,0 +1,100 @@
+/*
+ ============================================================================
+ Name        : Ejercicio_4_2.c
+ Author      : Pablo Guillermo
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float getTemperatura(void);
+float celsiusAFarenheit(float temperaturaIngresada);
+float farenheitACelsius(float temperaturaIngresada);
+
+int main(void) {
+	setbuf(stdout,NULL);
+
+	float temperatura;
+	char opcion;
+	char seguir;
+	float temperaturaConvertida;
+
+
+	do{
+		printf("Elija entre Celsius o Farenheit (c/f): ");
+		scanf("%c", &opcion);
+		fflush(stdin);
+
+		switch(opcion){
+		case 'c':
+			temperatura = getTemperatura();
+			printf("La temperatura ingresada en Celsius es: %.2f\n", temperatura);
+			printf("Quiere convertirla a Farenheit? (s/n): ");
+			scanf("%c", &opcion);
+			fflush(stdin);
+			if(opcion=='s'){
+				temperaturaConvertida = celsiusAFarenheit(temperatura);
+			}
+			break;
+
+		case 'f':
+			temperatura = getTemperatura();
+			printf("La temperatura ingresada en Farenheit es: %.2f\n", temperatura);
+			printf("Quiere convertirla a Celsius? (s/n): ");
+			scanf("%c", &opcion);
+			fflush(stdin);
+			if(opcion=='s'){
+				temperaturaConvertida = farenheitACelsius(temperatura);
+			}
+			break;
+		}
+
+		printf("La temperatura convertida es: %.2f\n", temperaturaConvertida);
+
+		printf("Quiere ingresar otra temperatura? (s/n): ");
+		scanf("%c", &seguir);
+		fflush(stdin);
+
+
+	}while(seguir=='s');
+
+
+
+
+
+
+
+
+	return EXIT_SUCCESS;
+}
+
+float getTemperatura(void){
+	float temp;
+
+	printf("Ingrese la temperatura: ");
+	scanf("%f", &temp);
+	fflush(stdin);
+
+	return temp;
+}
+
+float celsiusAFarenheit(float temperaturaIngresada){
+	float convertida;
+
+	convertida = temperaturaIngresada * 1.8 +32;
+
+	return convertida;
+}
+
+float farenheitACelsius(float temperaturaIngresada){
+	float convertida;
+
+	convertida = (temperaturaIngresada - 32) * 0.5556;
+
+
+	return convertida;
+}

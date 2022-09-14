@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Bibliotecas/src/biblioteca_utn.h&apos; to &apos;libreriaUTN.h&apos;" description="Rename resource &apos;biblioteca_utn.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/biblioteca_utn.h" name="libreriaUTN.h" stamp="1663198396997" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Bibliotecas/src/biblioteca_utn.c&apos; to &apos;libreriaUTN.c&apos;" description="Rename resource &apos;biblioteca_utn.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/biblioteca_utn.c" name="libreriaUTN.c" stamp="1663198408028" updateReferences="true"/>
+</session>

@@ -1,0 +1,20 @@
+/*
+ * validaciones.c
+ *
+ *  Created on: 9 sep. 2022
+ *      Author: pablo
+ */
+
+
+int validarRango(int numero[], int ind){
+	int esValido;
+
+	esValido = -1;
+
+	if(numero[ind]>=-1000 && numero[ind]<=1000){
+		esValido=0;
+	}
+
+
+	return esValido;
+}

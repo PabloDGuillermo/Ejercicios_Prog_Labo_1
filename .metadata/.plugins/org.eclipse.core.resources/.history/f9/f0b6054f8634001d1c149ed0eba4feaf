@@ -1,0 +1,16 @@
+/*
+ * biblioteca_utn.h
+ *
+ *  Created on: 14 sep. 2022
+ *      Author: pablo
+ */
+
+#ifndef LIBRERIAUTN_H_
+#define LIBRERIAUTN_H_
+
+int utn_GetNumero(int *pResultado, char mensaje[], char mensajeError[], char mensajeFinal[], int min, int max, int reintentos);
+static int getInt(int* pResultado);
+static int esNumerica(char cadena[]);
+static int myGets(char cadena[], int len);
+
+#endif /* LIBRERIAUTN_H_ */
